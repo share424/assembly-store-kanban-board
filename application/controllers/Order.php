@@ -99,4 +99,12 @@ class Order extends CI_Controller {
         $id = $this->input->post("id");
         echo $this->M_Order->delete($id);
     }
+
+    public function hide() 
+    {
+        $id = $this->input->post("id");
+        echo $this->M_Order->update($id, [
+            "visible" => 0
+        ]);
+    }
 }

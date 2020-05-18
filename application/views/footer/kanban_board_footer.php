@@ -58,6 +58,9 @@
     }
 
     function createCard(data) {
+        if(data.visible == 0) {
+            return "";
+        }
         var color = "orange";
         if(data.status == "on-progress") {
             color = "blue";
@@ -66,6 +69,9 @@
         }
 
         var str = '<li class="text-row ui-sortable-handle" data-task-id="'+data.id+'">';
+        if(data.status == "finish") {
+            str    +=    '<button type="button" onClick="hide('+data.id+')" class="close" >&times;</button>';
+        }
         str    +=    "<ul>";
         str    +=        "<li>"+data.name+"</li>";
         str    +=        "<li>"+data.quantity+"</li>";
@@ -104,5 +110,21 @@
             var card = createCard(order);
             $("#sort-"+name+"-"+status).append(card);
         });
+    }
+
+    function hide(id) {
+        $.ajax({
+            url: "order/hide",
+            method: "POST",
+            data: {
+                id: id
+            },
+            success: function() {
+                loadAll();
+            },
+            error: function() {
+                alert("Terjadi kesalahan");
+            }
+        })
     }
 </script>
