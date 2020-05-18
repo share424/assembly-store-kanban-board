@@ -1,6 +1,24 @@
 <?php
-    $footer = "component_list_footer.php";
+	$footer = "component_list_footer.php";
+	$products = $this->M_Product->getAll();
 ?>
+<div class="card">
+	<div class="card-header">
+		<h3 class="card-title">Select Product</h3>
+	</div>
+	<div class="card-body">
+        <div class="form-group">
+            <label for="product">Product</label>
+            <select name="product" id="product" class="form-control">
+                <?php
+                    foreach($products as $product) {
+                        echo "<option value='$product->id'>$product->name</option>";
+                    }
+                ?>
+            </select>
+        </div>
+    </div>
+</div>
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Component List</h3>
@@ -51,6 +69,30 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-success" onClick="confirmUpdate()" data-dismiss="modal">Update</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- The Modal -->
+<div class="modal" id="message-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Success</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>Success to update component</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
       </div>
 
     </div>

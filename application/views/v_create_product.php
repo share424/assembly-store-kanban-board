@@ -4,7 +4,7 @@
 ?>
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Select Component</h3>
+        <h3 class="card-title">Select Product</h3>
     </div>
     <div class="card-body">
         <div class="form-group">
@@ -52,7 +52,7 @@
             </table>
         </div>
         <div class="form-group">
-            <label>Duration</label>
+            <label>Duration Plan</label>
 
             <div class="input-group">
             <div class="input-group-prepend">
@@ -67,4 +67,28 @@
         <button class="btn btn-primary" id="btn-submit">Submit</button>
     </div>
     
+</div>
+<!-- The Modal -->
+<div class="modal" id="message-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Success</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>Success to order your component</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+      </div>
+
+    </div>
+  </div>
 </div>

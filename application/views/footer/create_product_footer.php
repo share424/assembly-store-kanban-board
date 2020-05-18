@@ -20,7 +20,7 @@
                         no: no++,
                         id: item.name,
                         stock: item.stock,
-                        action: "<button class='btn btn-primary' onClick='add("+(no-1)+")'>Tambah</buttom>"
+                        action: "<button class='btn btn-primary' onClick='add("+(no-2)+")'>Tambah</buttom>"
                     }
                 });
             }
@@ -86,6 +86,7 @@
                 qty: table_cart.data()[i].qty
             });
         }
+        $(".se-pre-con").fadeIn("fast");
         $.ajax({
             url: "order/component",
             method: "POST",
@@ -95,9 +96,12 @@
                 end_date: end_date.format('YYYY-MM-DD')
             },
             success: function(data) {
-                alert("Berhasil menambahkan data");
+                $(".se-pre-con").fadeOut("slow");
+                // alert("Berhasil menambahkan data");
+                $("#message-modal").modal("show");
             },  
             error: function(err) {
+                $(".se-pre-con").fadeOut("slow");
                 alert("Terjadi kesalahan");
             }
         })

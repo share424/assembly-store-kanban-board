@@ -12,8 +12,8 @@
                     <tr>
                         <th>Component ID</th>
                         <th>Quantity</th>
-                        <th>Duration Start</th>
-                        <th>Duration Finish</th>
+                        <th>Plan Start</th>
+                        <th>Plan Finish</th>
                         <th>Actual Start</th>
                         <th>Actual Finish</th>
                     </tr>

@@ -13,8 +13,8 @@
                     <tr>
                         <th>Component ID</th>
                         <th>Quantity</th>
-                        <th>Duration Start</th>
-                        <th>Duration Finish</th>
+                        <th>Plan Start</th>
+                        <th>Plan Finish</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -64,6 +64,31 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-success" onClick="confirmUpdate()" data-dismiss="modal">Update</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="message-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Success</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p id="message">Success to update order</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
       </div>
 
     </div>

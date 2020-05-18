@@ -12,8 +12,9 @@
                     var action = "";
                     if(order.status == "waiting") {
                         action += "<button onClick='edit("+order.id+")' class='btn btn-success'>Edit</button> ";
+                        action += "<button onClick='deleteComponent("+order.id+")' class='btn btn-danger'>Hapus</button>";
                     }
-                    action += "<button onClick='deleteComponent("+order.id+")' class='btn btn-danger'>Hapus</button>";
+                    
                     return {
                         id: order.id,
                         component_id: order.name,
@@ -55,6 +56,7 @@
     function confirmUpdate() {
         var id = $("#order-id").val();
         var qty = $("#component-qty").val();
+        $(".se-pre-con").fadeIn("fast");
         $.ajax({
             url: "order/update",
             method: "POST",
@@ -63,10 +65,14 @@
                 quantity: qty
             },
             success: function() {
-                alert("Success update order");
+                $(".se-pre-con").fadeOut("fast");
+                // alert("Success update order");
+                $("#message").text("Success to update order");
+                $("#message-modal").modal("show");
                 table.ajax.reload();
             },
             error: function() {
+                $(".se-pre-con").fadeOut("fast");
                 alert("Failed to update order");
             }
         })
@@ -74,6 +80,7 @@
 
     function deleteComponent(id) {
         if(confirm("Are you sure to delete this component order?")) {
+            $(".se-pre-con").fadeIn("fast");
             $.ajax({
                 url: "order/delete",
                 method: "POST",
@@ -81,7 +88,10 @@
                     id: id
                 },
                 success: function() {
-                    alert("Success delete order");
+                    $(".se-pre-con").fadeOut("fast");
+                    // alert("Success delete order");
+                    $("#message").text("Success delete order");
+                    $("#message-modal").modal("show");
                     table.ajax.reload()
                 },
                 error: function() {
