@@ -20,6 +20,7 @@
         columns: [
             {data: "name"},
             {data: "quantity"},
+            {data: "status"},
             {data: "start_date"},
             {data: "end_date"},
             {data: "actual_start"},

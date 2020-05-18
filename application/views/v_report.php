@@ -12,6 +12,7 @@
                     <tr>
                         <th>Component ID</th>
                         <th>Quantity</th>
+                        <th>Status</th>
                         <th>Plan Start</th>
                         <th>Plan Finish</th>
                         <th>Actual Start</th>
