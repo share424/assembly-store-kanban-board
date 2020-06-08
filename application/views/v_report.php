@@ -10,6 +10,7 @@
             <table class="table table-bordered" id="table-report">
                 <thead>
                     <tr>
+                        <th>Product</th>
                         <th>Component ID</th>
                         <th>Quantity</th>
                         <th>Status</th>

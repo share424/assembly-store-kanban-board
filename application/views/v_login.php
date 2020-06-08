@@ -22,7 +22,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <b>Assembly Store</b>
+    <b>Welcome To Assembly Store</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">

@@ -17,6 +17,7 @@
                     
                     return {
                         id: order.id,
+                        product: order.product,
                         component_id: order.name,
                         quantity: order.quantity,
                         start_date: order.start_date,
@@ -28,6 +29,7 @@
             }
         },
         columns: [
+            {data: "product"},
             {data: "component_id"},
             {data: "quantity"},
             {data: "start_date"},

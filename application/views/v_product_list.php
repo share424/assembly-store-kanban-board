@@ -11,6 +11,7 @@
             <table class="table table-bordered" id="table-product">
                 <thead>
                     <tr>
+                        <th>Product</th>
                         <th>Component ID</th>
                         <th>Quantity</th>
                         <th>Plan Start</th>

@@ -18,6 +18,7 @@
             dataSrc: ''
         },
         columns: [
+            {data: "product"},
             {data: "name"},
             {data: "quantity"},
             {data: "status"},
