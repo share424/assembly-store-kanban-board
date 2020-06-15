@@ -29,7 +29,8 @@ class Order extends CI_Controller {
                 "quantity" => $component["qty"],
                 "start_date" => $start_date,
                 "end_date" => $end_date,
-                "status" => "waiting"
+                "status" => "waiting",
+                "visible" => 1
             ]);
         }
         echo true;
@@ -50,6 +51,7 @@ class Order extends CI_Controller {
     {
         $id = $this->input->post("id");
         $status = $this->input->post("status");
+        $level = $this->input->post("level");
         $order = $this->M_Order->get($id)[0];
         $component = $this->M_Component->get($order->component_id)[0];
         if($order->status == "waiting" && $status == "finish") {
@@ -81,6 +83,42 @@ class Order extends CI_Controller {
             ];
         }
         $data["status"] = $status;
+        $data['done'] = 0;
+        if($order->status == "waiting") {
+            $product = $this->M_Component->getProductByComponentId($order->component_id);
+            if($product) {
+                if($product->name == "Aileron") {
+                    $data['level'] = 7;
+                } else if($product->name == "Elevator") {
+                    $data['level'] = 7;
+                } else if($product->name == "Rudder") {
+                    $data['level'] = 6;
+                }
+            } else {
+                echo "product not found";
+                return;
+            }
+        } else if($order->status == "on-progress" && $status == "on-progress") {
+            if($order->done == 0) {
+                echo "set done first";
+                return;
+            }
+            if($level < $order->level) {
+                $data['level'] = $level;
+            } else {
+                echo "wrong level";
+                return;
+            } 
+        }
+        if($status == "finish" && $order->level != 5) {
+            echo "must from level 5";
+            return;
+        }
+        if($status && $order->done == 0) {
+            echo "set done first";
+            return;
+        }
+        $data['done'] = 0;
         echo $this->M_Order->update($id, $data);
 
     }
@@ -105,6 +143,14 @@ class Order extends CI_Controller {
         $id = $this->input->post("id");
         echo $this->M_Order->update($id, [
             "visible" => 0
+        ]);
+    }
+
+    public function set_done()
+    {
+        $id = $this->input->post("id");
+        echo $this->M_Order->update($id, [
+            "done" => 1
         ]);
     }
 }

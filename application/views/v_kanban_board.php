@@ -66,7 +66,7 @@
                         <div class="card-header">
                             <span class="card-header-text">To Do</span>
                         </div>
-                        <ul class="sortable ui-sortable" id="sort-aileron-todo" data-status="waiting">
+                        <ul class="sortable ui-sortable" id="sort-aileron-todo" data-level="0" data-status="waiting">
                             <!-- Card -->
                         </ul>
                     </div>
@@ -74,9 +74,29 @@
                     <div class="status-card">
                         <!-- Board title -->
                         <div class="card-header">
-                            <span class="card-header-text">Doing</span>
+                            <span class="card-header-text">Level 7</span>
                         </div>
-                        <ul class="sortable ui-sortable" id="sort-aileron-doing" data-status="on-progress">
+                        <ul class="sortable ui-sortable" id="sort-aileron-doing-7" data-level="7" data-status="on-progress">
+                            <!-- Card -->
+                        </ul>
+                    </div>
+                    <!-- Board -->
+                    <div class="status-card">
+                        <!-- Board title -->
+                        <div class="card-header">
+                            <span class="card-header-text">Level 6</span>
+                        </div>
+                        <ul class="sortable ui-sortable" id="sort-aileron-doing-6" data-level="6" data-status="on-progress">
+                            <!-- Card -->
+                        </ul>
+                    </div>
+                    <!-- Board -->
+                    <div class="status-card">
+                        <!-- Board title -->
+                        <div class="card-header">
+                            <span class="card-header-text">Level 5</span>
+                        </div>
+                        <ul class="sortable ui-sortable" id="sort-aileron-doing-5" data-level="5" data-status="on-progress">
                             <!-- Card -->
                         </ul>
                     </div>
@@ -85,9 +105,9 @@
                     <div class="status-card">
                         <!-- Board title -->
                         <div class="card-header">
-                            <span class="card-header-text">Done</span>
+                            <span class="card-header-text">Level 4 (Done)</span>
                         </div>
-                        <ul class="sortable ui-sortable" id="sort-aileron-done" data-status="finish">
+                        <ul class="sortable ui-sortable" id="sort-aileron-done" data-level="4" data-status="finish">
                             <!-- Card -->
                         </ul>
                     </div>
@@ -107,13 +127,33 @@
                             <li class="text-row ui-sortable-handle" data-task-id="2">Task 2</li>
                         </ul>
                     </div>
+                     <!-- Board -->
+                     <div class="status-card">
+                        <!-- Board title -->
+                        <div class="card-header">
+                            <span class="card-header-text">Level 7</span>
+                        </div>
+                        <ul class="sortable ui-sortable" id="sort-elevator-doing-7" data-level="7" data-status="on-progress">
+                            <!-- Card -->
+                        </ul>
+                    </div>
                     <!-- Board -->
                     <div class="status-card">
                         <!-- Board title -->
                         <div class="card-header">
-                            <span class="card-header-text">Doing</span>
+                            <span class="card-header-text">Level 6</span>
                         </div>
-                        <ul class="sortable ui-sortable" id="sort-elevator-doing" data-status="on-progress">
+                        <ul class="sortable ui-sortable" id="sort-elevator-doing-6" data-level="6" data-status="on-progress">
+                            <!-- Card -->
+                        </ul>
+                    </div>
+                    <!-- Board -->
+                    <div class="status-card">
+                        <!-- Board title -->
+                        <div class="card-header">
+                            <span class="card-header-text">Level 5</span>
+                        </div>
+                        <ul class="sortable ui-sortable" id="sort-elevator-doing-5" data-level="5" data-status="on-progress">
                             <!-- Card -->
                         </ul>
                     </div>
@@ -122,7 +162,7 @@
                     <div class="status-card">
                         <!-- Board title -->
                         <div class="card-header">
-                            <span class="card-header-text">Done</span>
+                            <span class="card-header-text">Level 4 (Done)</span>
                         </div>
                         <ul class="sortable ui-sortable" id="sort-elevator-done" data-status="finish">
                             <!-- Card -->
@@ -146,9 +186,19 @@
                     <div class="status-card">
                         <!-- Board title -->
                         <div class="card-header">
-                            <span class="card-header-text">Doing</span>
+                            <span class="card-header-text">Level 6</span>
                         </div>
-                        <ul class="sortable ui-sortable" id="sort-rudder-doing" data-status="on-progress">
+                        <ul class="sortable ui-sortable" id="sort-rudder-doing-6" data-level="6" data-status="on-progress">
+                            <!-- Card -->
+                        </ul>
+                    </div>
+                    <!-- Board -->
+                    <div class="status-card">
+                        <!-- Board title -->
+                        <div class="card-header">
+                            <span class="card-header-text">Level 5</span>
+                        </div>
+                        <ul class="sortable ui-sortable" id="sort-rudder-doing-5" data-level="5" data-status="on-progress">
                             <!-- Card -->
                         </ul>
                     </div>
@@ -157,7 +207,7 @@
                     <div class="status-card">
                         <!-- Board title -->
                         <div class="card-header">
-                            <span class="card-header-text">Done</span>
+                            <span class="card-header-text">Level 4 (Done)</span>
                         </div>
                         <ul class="sortable ui-sortable" id="sort-rudder-done" data-status="finish">
                             <!-- Card -->

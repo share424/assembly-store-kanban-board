@@ -22,7 +22,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <b>Welcome To Assembly Store</b>
+    <b>Welcome To Electronic Kanban</b>
   </div>
   <!-- /.login-logo -->
   <div class="card">

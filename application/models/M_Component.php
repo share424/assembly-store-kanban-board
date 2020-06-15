@@ -15,6 +15,18 @@ class M_Component extends CI_Model
                         ->result();
     }
 
+    public function getProductByComponentId($id)
+    {
+        $product = $this->db->select("product.id as id, product.name as name")
+                        ->join("product", "component.product_id = product.id")
+                        ->get("component")
+                        ->result();
+        if(count($product) > 0) {
+            return $product[0];
+        }
+        return null;
+    }
+
     public function get($id)
     {
         return $this->db->where("id", $id)

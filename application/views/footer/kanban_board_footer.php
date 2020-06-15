@@ -12,16 +12,22 @@
         connectWith: '.sortable',
         receive: function(e, ui) {
             var status_id = $(ui.item).parent(".sortable").data("status");
+            var level;
+            if(status_id == "on-progress") {
+                level = $(ui.item).parent(".sortable").data('level');
+            }
             var task_id = $(ui.item).data("task-id");
-            console.log({statis: status_id, id: task_id});
+            console.log({action: 'move', status: status_id, id: task_id, level: level});
             $.ajax({
                 url: "order/move",
                 method: "POST",
                 data: {
                     id: task_id,
-                    status: status_id
+                    status: status_id,
+                    level: level
                 },
                 success: function(data) {
+                    console.log(data);
                     loadAll();
                 },
                 error: function(err) {
@@ -67,17 +73,22 @@
         } else if(data.status == 'finish') {
             color = "green";
         }
-
+        var level = "";
         var str = '<li class="text-row ui-sortable-handle" data-task-id="'+data.id+'">';
         if(data.status == "finish") {
             str    +=    '<button type="button" onClick="hide('+data.id+')" class="close" >&times;</button>';
+        } else if(data.status == "on-progress") {
+            level = " (" + data.level + ")";
+            if(data.done == 0) {
+                str    +=    '<button type="button" onClick="setDone('+data.id+')" class="close" >&check;</button>';
+            }
         }
         str    +=    "<ul>";
         str    +=        "<li>"+data.name+"</li>";
         str    +=        "<li>"+data.quantity+"</li>";
         str    +=        "<li>"+data.start_date+"</li>";
         str    +=        "<li>"+data.end_date+"</li>";
-        str    +=        '<li style="text-align: right; color: '+color+'">'+data.status+'</li>';
+        str    +=        '<li style="text-align: right; color: '+color+';">'+data.status+level+'</li>';
         if(data.stock < data.quantity && data.status == 'waiting') {
             str+=        '<li style="text-align: right; color: red">'+(data.stock - data.quantity)+'</li>';
         }
@@ -105,9 +116,17 @@
     }
 
     function populateCard(name, status, data) {
-        $("#sort-"+name+"-"+status).empty();
+        if(status == "doing" && name != "all") {
+            $("ul[id*=sort-"+name+"-"+status+"-]").empty();
+        } else {
+            $("#sort-"+name+"-"+status).empty();
+        }
+        
         data.forEach(function(order) {
             var card = createCard(order);
+            if(status == "doing" && name != "all") {
+                status += "-" + order.level;
+            }
             $("#sort-"+name+"-"+status).append(card);
         });
     }
@@ -124,6 +143,22 @@
             },
             error: function() {
                 alert("Terjadi kesalahan");
+            }
+        })
+    }
+
+    function setDone(id) {
+        $.ajax({
+            url: "order/set_done",
+            method: "POST",
+            data: {
+                id: id
+            },
+            success: function() {
+                loadAll();
+            },
+            error: function() {
+                alert("Terjadi Kesalahan");
             }
         })
     }
