@@ -66,13 +66,16 @@ class Order extends CI_Controller {
             echo "finish";
             return;
         }
-        if($component->stock < $order->quantity && $status == "on-progress") {
+        if($component->stock < $order->quantity && $status == "on-progress" && $order->status == "waiting") {
             echo "stock";
             return;
         }
-        echo $this->M_Component->update($component->id, [
-            "stock" => $component->stock - $order->quantity
-        ]);
+        if($status == "on-progress" && $order->status == "waiting") {
+            echo $this->M_Component->update($component->id, [
+                "stock" => $component->stock - $order->quantity
+            ]);
+        }
+        
         if($status == "on-progress") {
             $data = [
                 "actual_start" => date('Y-m-d')
