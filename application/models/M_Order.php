@@ -33,4 +33,14 @@ class M_Order extends CI_Model
         return $this->db->where("id", $id)
                         ->update("orders", $data);
     }
+
+    public function getReport($id)
+    {
+        return $this->db->select("component.name as component_name, orders.status as status, count(*) as jumlah")
+                        ->join("orders", "component.id = orders.component_id")
+                        ->where("component.id", $id)
+                        ->group_by("orders.status")
+                        ->get("component")
+                        ->result();
+    }
 }

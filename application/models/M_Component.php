@@ -19,6 +19,7 @@ class M_Component extends CI_Model
     {
         $product = $this->db->select("product.id as id, product.name as name")
                         ->join("product", "component.product_id = product.id")
+                        ->where("component.id", $id)
                         ->get("component")
                         ->result();
         if(count($product) > 0) {

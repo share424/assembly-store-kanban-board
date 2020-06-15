@@ -88,13 +88,18 @@ class Order extends CI_Controller {
         $data["status"] = $status;
         $data['done'] = 0;
         if($order->status == "waiting") {
-            $product = $this->M_Component->getProductByComponentId($order->component_id);
+            $product = $this->M_Component->getProductByComponentId($component->id);
+            echo $component->id;
             if($product) {
+                // echo $product->name;
                 if($product->name == "Aileron") {
+                    echo "Aileron";
                     $data['level'] = 7;
                 } else if($product->name == "Elevator") {
+                    echo "Elevator";
                     $data['level'] = 7;
                 } else if($product->name == "Rudder") {
+                    echo "Rudder";
                     $data['level'] = 6;
                 }
             } else {
@@ -155,5 +160,38 @@ class Order extends CI_Controller {
         echo $this->M_Order->update($id, [
             "done" => 1
         ]);
+    }
+
+    public function report()
+    {
+        $products = $this->M_Product->getAll();
+        $reports = [];
+        foreach($products as $product) {
+            $p = [
+                "id" => $product->id,
+                "name" => $product->name,
+                "components" => []
+            ];
+            $components = $this->M_Component->getByProductId($product->id);
+            foreach($components as $component) {
+                $report = $this->M_Order->getReport($component->id);
+                $r = [
+                    "waiting" => 0,
+                    "on-progress" => 0,
+                    "finish" => 0
+                ];
+                foreach($report as $re) {
+                    $r[$re->status] = intval($re->jumlah);
+                }
+                $p["components"][] = [
+                    "id" => $component->id,
+                    "name" => $component->name,
+                    "reports" => $r
+                ];
+            }
+            $reports[] = $p;
+        }
+
+        echo json_encode($reports);
     }
 }

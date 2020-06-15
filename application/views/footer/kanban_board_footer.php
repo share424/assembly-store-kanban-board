@@ -84,6 +84,7 @@
             }
         }
         str    +=    "<ul>";
+        str    +=        "<li>"+data.product+"</li>";
         str    +=        "<li>"+data.name+"</li>";
         str    +=        "<li>"+data.quantity+"</li>";
         str    +=        "<li>"+data.start_date+"</li>";
