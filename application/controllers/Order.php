@@ -114,7 +114,7 @@ class Order extends CI_Controller {
             echo "must from level 5";
             return;
         }
-        if($status && $order->done == 0) {
+        if($status == "finish" && $order->done == 0) {
             echo "set done first";
             return;
         }

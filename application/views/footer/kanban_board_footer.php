@@ -124,10 +124,11 @@
         
         data.forEach(function(order) {
             var card = createCard(order);
+            var level = "";
             if(status == "doing" && name != "all") {
-                status += "-" + order.level;
+                level = "-" + order.level;
             }
-            $("#sort-"+name+"-"+status).append(card);
+            $("#sort-"+name+"-"+status+level).append(card);
         });
     }
 
