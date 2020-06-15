@@ -22620,7 +22620,14 @@ html.maximized-card {
 .register-page {
   -ms-flex-align: center;
   align-items: center;
-  background: #e9ecef;
+  /* background: #ff0000; */
+  background-image: url("../img/plane.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
   display: -ms-flexbox;
   display: flex;
   height: 100vh;
