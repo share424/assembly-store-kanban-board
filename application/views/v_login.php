@@ -21,12 +21,13 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <div class="login-logo">
-    <b>Welcome To Electronic Kanban</b>
-  </div>
+  
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
+    <div class="login-logo">
+    <b>Welcome To Electronic Kanban</b>
+  </div>
       <p class="login-box-msg">Sign in to start your session</p>
 
       <?php echo form_open('login/cek_login'); ?>
