@@ -18,6 +18,7 @@
                 return data.map(function(item) {
                     return {
                         no: no++,
+                        name: item.alias,
                         id: item.name,
                         stock: item.stock,
                         action: "<button class='btn btn-primary' onClick='add("+(no-2)+")'>Tambah</buttom>"
@@ -27,6 +28,7 @@
         },
         columns: [
             {data: "no"},
+            {data: "name"},
             {data: "id"},
             {data: "stock"},
             {data: "action"}
@@ -35,6 +37,7 @@
     var table_cart = $("#table-cart").DataTable({
         data: [],
         columns: [
+            {data: "alias"},
             {data: "name"},
             {data: "quantity"},
             {data: "action"}

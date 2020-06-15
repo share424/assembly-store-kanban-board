@@ -22,6 +22,7 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Name</th>
                         <th>Component ID</th>
                         <th>Stock</th>
                         <th>Action</th>
@@ -43,6 +44,7 @@
             <table class="table table-bordered" id="table-cart">
                 <thead>
                     <tr>
+                        <th>Name</th>
                         <th>Component ID</th>
                         <th>Quantity</th>
                         <th>Action</th>

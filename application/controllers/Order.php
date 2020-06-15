@@ -88,24 +88,7 @@ class Order extends CI_Controller {
         $data["status"] = $status;
         $data['done'] = 0;
         if($order->status == "waiting") {
-            $product = $this->M_Component->getProductByComponentId($component->id);
-            echo $component->id;
-            if($product) {
-                // echo $product->name;
-                if($product->name == "Aileron") {
-                    echo "Aileron";
-                    $data['level'] = 7;
-                } else if($product->name == "Elevator") {
-                    echo "Elevator";
-                    $data['level'] = 7;
-                } else if($product->name == "Rudder") {
-                    echo "Rudder";
-                    $data['level'] = 6;
-                }
-            } else {
-                echo "product not found";
-                return;
-            }
+            $data['level'] = $component->level;
         } else if($order->status == "on-progress" && $status == "on-progress") {
             if($order->done == 0) {
                 echo "set done first";
