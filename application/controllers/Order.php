@@ -94,6 +94,11 @@ class Order extends CI_Controller {
                 echo "set done first";
                 return;
             }
+            if($this->session->user->role != "assembly") {
+                echo "only assembly";
+                return;
+            }
+            echo $this->session->user->role;
             if($level < $order->level) {
                 $data['level'] = $level;
             } else {
@@ -139,6 +144,10 @@ class Order extends CI_Controller {
 
     public function set_done()
     {
+        if($this->session->user->role != "assembly") {
+            echo "only assembly";
+            return;
+        }
         $id = $this->input->post("id");
         echo $this->M_Order->update($id, [
             "done" => 1
