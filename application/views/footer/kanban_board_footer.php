@@ -68,13 +68,16 @@
             return "";
         }
         var color = "orange";
+        var background = 'bg-danger';
         if(data.status == "on-progress") {
             color = "blue";
+            background = 'bg-warning';
         } else if(data.status == 'finish') {
             color = "green";
+            background = 'bg-success';
         }
         var level = "";
-        var str = '<li class="text-row ui-sortable-handle" data-task-id="'+data.id+'">';
+        var str = '<li class="text-row ui-sortable-handle '+background+'" data-task-id="'+data.id+'">';
         if(data.status == "finish") {
             str    +=    '<button type="button" onClick="hide('+data.id+')" class="close" >&times;</button>';
         } else if(data.status == "on-progress") {
