@@ -54,6 +54,10 @@ class Order extends CI_Controller {
         $level = $this->input->post("level");
         $order = $this->M_Order->get($id)[0];
         $component = $this->M_Component->get($order->component_id)[0];
+        if($order->status == "waiting" && $status == "on-progress" && $this->session->user->role != "store") {
+            echo "Only store";
+            return;
+        }
         if($order->status == "waiting" && $status == "finish") {
             echo "waiting-finish";
             return;
