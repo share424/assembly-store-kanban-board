@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Assembly Store</title>
+  <title>E-Kanban</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fontawesome-free/css/all.min.css">
@@ -73,7 +73,7 @@
     <a href="#" class="brand-link">
       <img src="<?php echo base_url() ?>assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Assembly Store</span>
+      <span class="brand-text font-weight-light">E-Kanban</span>
     </a>
 
     <!-- Sidebar -->
