@@ -89,12 +89,13 @@
         str    +=    "<ul>";
         str    +=        "<li>"+data.product+"</li>";
         str    +=        "<li>"+data.name+"</li>";
+        str    +=        "<li>"+data.alias+"</li>";
         str    +=        "<li>"+data.quantity+"</li>";
         str    +=        "<li>"+data.start_date+"</li>";
         str    +=        "<li>"+data.end_date+"</li>";
         str    +=        '<li style="text-align: right; color: '+color+';">'+data.status+level+'</li>';
         if(data.stock < data.quantity && data.status == 'waiting') {
-            str+=        '<li style="text-align: right; color: red">'+(data.stock - data.quantity)+'</li>';
+            str+=        '<li style="text-align: right; color: yellow">'+(data.stock - data.quantity)+'</li>';
         }
         str    +=    "</ul>";
         str    += "</li>";
