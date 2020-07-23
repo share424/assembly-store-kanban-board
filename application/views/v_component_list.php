@@ -29,6 +29,7 @@
                 <thead>
                     <tr>
                         <th>Component ID</th>
+                        <th>Component Name</th>
                         <th>Stock</th>
                         <th>Action</th>
                     </tr>
@@ -58,6 +59,10 @@
         <div class="form-group">
             <label for="component-id">Component ID</label>
             <input type="text" id="component-name" class="form-control" readonly>
+        </div>
+        <div class="form-group">
+            <label for="component-id">Component Name</label>
+            <input type="text" id="component-alias" class="form-control" readonly>
         </div>
         <div class="form-group">
             <label for="component-qty">Stock</label>

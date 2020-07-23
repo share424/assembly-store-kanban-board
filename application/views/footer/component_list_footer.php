@@ -12,23 +12,26 @@ var product = $("#product");
                 return data.map(function(component) {
                     return {
                         name: component.name,
+                        alias: component.alias,
                         stock: component.stock,
-                        action: "<button class='btn btn-primary' onClick='updateStock("+component.id+","+component.stock+","+'"'+component.name+'"'+")'>Update Stock</button>"
+                        action: "<button class='btn btn-primary' onClick='updateStock("+component.id+","+component.stock+","+'"'+component.name+'","'+component.alias+'"'+")'>Update Stock</button>"
                     }
                 });
             }
         },
         columns: [
             {data: "name"},
+            {data: "alias"},
             {data: "stock"},
             {data: "action"}
         ]
     })
 
-    function updateStock(id, stock, name) {
+    function updateStock(id, stock, name, alias) {
         $("#edit-modal").modal("show");
         $("#component-id").val(id);
         $("#component-name").val(name);
+        $("#component-alias").val(alias);
         $("#component-stock").val(stock);
     }
 
